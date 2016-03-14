@@ -15,14 +15,14 @@ class Directory {
 	 * @return An array of the full names (including paths) of the subdirectories that match the specified criteria, or an empty array if no directories are found.
 	 */
 	public static inline function getFiles(path:String, searchPattern:String, searchOption:SearchOption):Array<String> {
-		return _getFiles(path.addTrailingSlash(), searchPattern, searchOption, []);
+		return _getFiles(haxe.io.Path.addTrailingSlash(path), searchPattern, searchOption, []);
 	}
 	
 	static inline var FILES:String = "files";
 	static inline var DIRECTORIES:String = "directories";
 	
 	static function _getFiles(path:String, pattern:String, option:SearchOption, result:Array<String>):Array<String> {
-		var paths = FLfile.listFolder(path.addTrailingSlash(), FILES);
+		var paths = FLfile.listFolder(haxe.io.Path.addTrailingSlash(path), FILES);
 		if(pattern.startsWith("*")) {
 			var extension = pattern.substring(1);
 			paths = paths.filter(function(p) return p.endsWith(extension));
