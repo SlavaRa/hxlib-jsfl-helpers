@@ -2,8 +2,8 @@ package jsfl.sys.io;
 using Lambda;
 using StringTools;
 using jsfl.FLfile;
-using jsfl.sys.io.Path;
-using jsfl.sys.io.SearchOption;
+using sys.io.Path;
+using sys.io.SearchOption;
 
 class Directory {
 	
